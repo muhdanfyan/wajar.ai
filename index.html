@@ -5,74 +5,187 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WAJAR.AI — Belajar apa aja, cukup WA aja</title>
     <meta name="description" content="Chat AI via WhatsApp. Gratis cobain dulu. Resep masak, belajar coding, ide usaha, curhat — semua lewat satu nomor WA.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --navy: #0f3460;
+            --navy-dark: #092046;
+            --navy-light: #1a4a7a;
+            --accent: #e18f3a;
+            --accent-light: #f0b86e;
+            --accent-dark: #c67a2e;
+            --green: #4caf50;
+            --green-light: #e8f5e9;
+            --bg-muted: #f8f9fc;
+            --bg-card: #ffffff;
+            --border: #e8ecf0;
+            --text: #1a1a2e;
+            --text-muted: #6b7280;
+            --shadow: 0 4px 24px rgba(15, 52, 96, 0.08);
+            --shadow-hover: 0 8px 32px rgba(15, 52, 96, 0.16);
+            --radius: 16px;
+            --radius-sm: 10px;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            color: #1a1a2e;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text);
             background: #ffffff;
-            line-height: 1.6;
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
-        .container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
 
-        /* HERO */
-        .hero {
-            padding: 60px 0 40px;
-            text-align: center;
-            background: linear-gradient(180deg, #f0f4ff 0%, #ffffff 100%);
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
         }
-        .hero .brand { font-size: 42px; font-weight: 900; letter-spacing: -2px; color: #0f3460; }
-        .hero .brand span { color: #e94560; }
-        .hero .tagline { font-size: 20px; font-weight: 700; margin: 10px 0 6px; color: #1a1a2e; }
-        .hero .sub { font-size: 14px; color: #666; margin-bottom: 24px; }
-        .hero .cta {
-            display: inline-block;
-            background: #25D366;
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand { font-size: 22px; font-weight: 900; color: var(--navy); letter-spacing: -1px; }
+        .nav-brand span { color: var(--accent); }
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent);
             color: white;
-            padding: 14px 36px;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .nav-cta:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(225, 143, 58, 0.3); }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 120px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, #f0f4ff 0%, #ffffff 60%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(225, 143, 58, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(15, 52, 96, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero .brand {
+            font-size: 52px;
+            font-weight: 900;
+            letter-spacing: -3px;
+            color: var(--navy);
+            line-height: 1.1;
+        }
+        .hero .brand span { color: var(--accent); }
+        .hero .tagline { font-size: 24px; font-weight: 700; margin: 12px 0 8px; color: var(--text); }
+        .hero .sub {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        .hero .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent);
+            color: white;
+            padding: 18px 42px;
             border-radius: 50px;
             font-size: 16px;
             font-weight: 700;
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            transition: transform 0.2s;
+            box-shadow: 0 8px 24px rgba(225, 143, 58, 0.3);
+            transition: all 0.3s;
+            position: relative;
+            z-index: 2;
         }
-        .hero .cta:hover { transform: scale(1.05); }
-        .hero .cta-sub { display: block; margin-top: 8px; font-size: 12px; color: #888; font-weight: 400; }
+        .hero .cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(225, 143, 58, 0.4); }
+        .hero .cta-sub { display: block; margin-top: 14px; font-size: 13px; color: var(--text-muted); font-weight: 500; }
+        .hero .cta-sub span { background: var(--green-light); padding: 2px 8px; border-radius: 4px; color: #2e7d32; font-weight: 700; }
 
-        /* SECTIONS */
-        section { padding: 48px 0; }
-        section:nth-child(even) { background: #f8faff; }
+        /* ===== SECTIONS ===== */
+        section { padding: 64px 0; }
+        section:nth-child(even) { background: var(--bg-muted); }
         .section-title {
-            font-size: 22px;
-            font-weight: 800;
-            color: #0f3460;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
             text-align: center;
-            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 6px;
+        }
+        .section-heading {
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 14px;
+            line-height: 1.2;
         }
         .section-sub {
             text-align: center;
             font-size: 14px;
-            color: #666;
-            margin-bottom: 28px;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* HOW IT WORKS */
-        .steps { display: flex; flex-direction: column; gap: 12px; }
+        /* ===== STEPS ===== */
+        .steps { display: flex; flex-direction: column; gap: 14px; }
         .step {
             display: flex;
             align-items: center;
-            gap: 16px;
-            background: white;
-            border: 1px solid #e8ecf0;
-            border-radius: 12px;
-            padding: 16px 18px;
+            gap: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
         }
+        .step:hover { box-shadow: var(--shadow-hover); border-color: var(--accent); }
         .step-num {
-            width: 36px;
-            height: 36px;
-            background: #0f3460;
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -82,130 +195,210 @@
             font-size: 16px;
             flex-shrink: 0;
         }
+        .step-icon { font-size: 32px; flex-shrink: 0; }
         .step-body { flex: 1; }
-        .step-title { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
-        .step-desc { font-size: 12.5px; color: #555; }
-        .step-icon { font-size: 28px; flex-shrink: 0; }
+        .step-title { font-weight: 700; font-size: 15px; margin-bottom: 2px; color: var(--navy); }
+        .step-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
 
-        /* FEATURES */
-        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        @media (max-width: 480px) { .features { grid-template-columns: 1fr; } }
+        /* ===== FEATURES ===== */
+        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        @media (max-width: 540px) { .features { grid-template-columns: 1fr; } }
         .feat {
-            background: white;
-            border: 1px solid #e8ecf0;
-            border-radius: 10px;
-            padding: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px 20px;
             text-align: center;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
         }
-        .feat-icon { font-size: 32px; margin-bottom: 6px; }
-        .feat-title { font-weight: 700; font-size: 13px; margin-bottom: 4px; }
-        .feat-desc { font-size: 11.5px; color: #555; }
+        .feat:hover { box-shadow: var(--shadow-hover); border-color: var(--accent); transform: translateY(-2px); }
+        .feat-icon { font-size: 38px; margin-bottom: 10px; display: block; }
+        .feat-title { font-weight: 700; font-size: 15px; margin-bottom: 6px; color: var(--navy); }
+        .feat-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
 
-        /* PRICING */
-        .pricing { display: flex; flex-direction: column; gap: 10px; }
+        /* ===== PRICING ===== */
+        .pricing { display: flex; flex-direction: column; gap: 12px; }
         .price-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: white;
-            border: 1px solid #e8ecf0;
-            border-radius: 10px;
-            padding: 14px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 18px 24px;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
         }
+        .price-row:hover { box-shadow: var(--shadow-hover); }
         .price-row.highlight {
-            border-color: #0f3460;
-            background: #f0f4ff;
+            border-color: var(--accent);
+            background: linear-gradient(135deg, #fffaf3 0%, #ffffff 100%);
+            box-shadow: 0 4px 24px rgba(225, 143, 58, 0.12);
+            position: relative;
         }
-        .price-info { display: flex; align-items: center; gap: 10px; }
-        .price-icon { font-size: 24px; }
-        .price-label { font-weight: 600; font-size: 13px; }
-        .price-label small { font-weight: 400; color: #888; font-size: 11px; display: block; }
-        .price-amount { font-weight: 800; font-size: 18px; color: #0f3460; white-space: nowrap; }
-        .price-row.highlight .price-amount { color: #e94560; font-size: 20px; }
+        .price-row.highlight::before {
+            content: '🌿 Paling Laris';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 12px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .price-info { display: flex; align-items: center; gap: 14px; }
+        .price-icon { font-size: 28px; }
+        .price-label { font-weight: 600; font-size: 14px; }
+        .price-label small { font-weight: 400; color: var(--text-muted); font-size: 12px; display: block; margin-top: 1px; }
+        .price-amount { font-weight: 800; font-size: 22px; color: var(--navy); white-space: nowrap; }
+        .price-row.highlight .price-amount { color: var(--accent); font-size: 24px; }
 
-        /* TESTIMONIAL */
+        /* ===== TESTIMONIAL ===== */
+        .testi-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        @media (max-width: 600px) { .testi-wrapper { grid-template-columns: 1fr; } }
         .testi {
-            background: white;
-            border: 1px solid #e8ecf0;
-            border-radius: 10px;
-            padding: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
             font-style: italic;
             font-size: 13px;
-            color: #444;
+            color: var(--text-muted);
+            box-shadow: var(--shadow);
+            line-height: 1.6;
+            transition: all 0.3s;
         }
-        .testi-author { margin-top: 6px; font-size: 11px; color: #888; font-style: normal; font-weight: 600; }
+        .testi:hover { box-shadow: var(--shadow-hover); }
+        .testi-author { margin-top: 12px; font-size: 12px; color: var(--navy); font-style: normal; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .testi-author::before {
+            content: '';
+            width: 20px;
+            height: 2px;
+            background: var(--accent);
+            display: inline-block;
+        }
 
-        /* FAQ */
+        /* ===== FAQ ===== */
+        .faq-list { max-width: 700px; margin: 0 auto; }
         .faq-item {
-            background: white;
-            border: 1px solid #e8ecf0;
-            border-radius: 10px;
-            padding: 14px 16px;
-            margin-bottom: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 18px 20px;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
         }
-        .faq-q { font-weight: 700; font-size: 13px; margin-bottom: 4px; color: #0f3460; }
-        .faq-a { font-size: 12.5px; color: #555; }
+        .faq-item:hover { border-color: var(--accent); }
+        .faq-q { font-weight: 700; font-size: 14px; margin-bottom: 4px; color: var(--navy); display: flex; align-items: center; gap: 8px; }
+        .faq-q::before { content: '❓'; font-size: 14px; }
+        .faq-a { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 22px; }
 
-        /* CTA BOTTOM */
+        /* ===== CTA BOTTOM ===== */
         .cta-section {
             text-align: center;
-            padding: 48px 0;
-            background: #0f3460;
+            padding: 72px 24px;
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
         }
-        .cta-section h2 { font-size: 22px; margin-bottom: 8px; }
-        .cta-section p { font-size: 13px; opacity: 0.8; margin-bottom: 20px; }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(225, 143, 58, 0.12) 0%, transparent 70%);
+        }
+        .cta-section h2 { font-size: 28px; font-weight: 800; margin-bottom: 8px; position: relative; z-index: 2; }
+        .cta-section p { font-size: 14px; opacity: 0.8; margin-bottom: 24px; position: relative; z-index: 2; }
         .cta-section .cta {
-            display: inline-block;
-            background: #25D366;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent);
             color: white;
-            padding: 14px 36px;
+            padding: 18px 42px;
             border-radius: 50px;
             font-size: 16px;
             font-weight: 700;
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            transition: transform 0.2s;
+            box-shadow: 0 8px 24px rgba(225, 143, 58, 0.3);
+            transition: all 0.3s;
+            position: relative;
+            z-index: 2;
         }
-        .cta-section .cta:hover { transform: scale(1.05); }
+        .cta-section .cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(225, 143, 58, 0.4); }
 
-        /* FOOTER */
+        /* ===== FOOTER ===== */
         footer {
             text-align: center;
-            padding: 24px;
-            font-size: 11px;
-            color: #999;
-            background: #f8faff;
+            padding: 32px 24px;
+            font-size: 12px;
+            color: var(--text-muted);
+            background: var(--bg-muted);
+            border-top: 1px solid var(--border);
         }
+        footer strong { color: var(--navy); }
+        footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
 
-        .badge { display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .hero .brand { font-size: 38px; }
+            .hero .tagline { font-size: 18px; }
+            .hero .cta { padding: 14px 28px; font-size: 14px; }
+            .section-heading { font-size: 24px; }
+            .step { padding: 14px 16px; }
+            .price-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .price-amount { align-self: flex-end; }
+            .price-row.highlight::before { right: 10px; font-size: 9px; }
+        }
     </style>
 </head>
 <body>
 
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-brand">WAJAR.<span>AI</span></div>
+        <a class="nav-cta" href="https://lynk.id/wajarai" target="_blank">
+            💬 Chat Aiman
+        </a>
+    </div>
+</nav>
+
 <!-- HERO -->
-<div class="hero">
+<section class="hero">
     <div class="container">
         <div class="brand">WAJAR.<span>AI</span></div>
         <div class="tagline">Belajar apa aja, cukup WA aja</div>
-        <div class="sub">🤖 Temen digital yang siap bantu kapan pun kamu butuh</div>
-        <a class="cta" href="https://lynk.id/wajarai" target="_blank">💬 Chat Aiman Gratis &rarr;</a>
-        <span class="cta-sub">🎁 Gratis cobain dulu, kalau suka baru bayar</span>
+        <div class="sub">🤖 Temen digital yang siap bantu kapan pun kamu butuh — dari resep masak sampe coding.</div>
+        <a class="cta" href="https://lynk.id/wajarai" target="_blank">💬 Chat Aiman Gratis <span style="font-size:12px;opacity:0.8;">&rarr;</span></a>
+        <span class="cta-sub"><span>🎁 8.000 kata gratis</span> — cobain dulu, kalau suka baru bayar</span>
     </div>
-</div>
+</section>
 
 <!-- HOW IT WORKS -->
 <section>
     <div class="container">
-        <div class="section-title">🚀 Cara Kerjanya</div>
-        <div class="section-sub">Sederhana. Chat aja. Gak perlu install app tambahan.</div>
+        <div class="section-title">Cara Kerja</div>
+        <h2 class="section-heading">Gampang banget, 3 langkah aja</h2>
+        <div class="section-sub">Gak perlu install aplikasi baru. Cukup WhatsApp yang udah ada di HP kamu.</div>
         <div class="steps">
             <div class="step">
                 <div class="step-num">1</div>
                 <div class="step-icon">💬</div>
                 <div class="step-body">
                     <div class="step-title">Chat nomor WAJAR.AI</div>
-                    <div class="step-desc">Buka WA, cari nomor WAJAR.AI, tanya apa aja. Gampang kan?</div>
+                    <div class="step-desc">Buka WhatsApp, cari nomor WAJAR.AI, tanya apa aja yang kamu mau. Gampang kan?</div>
                 </div>
             </div>
             <div class="step">
@@ -213,7 +406,7 @@
                 <div class="step-icon">🎁</div>
                 <div class="step-body">
                     <div class="step-title">Dapet 8.000 kata gratis</div>
-                    <div class="step-desc">Coba dulu — tanya resep, buku, coding, curhat. Semua gratis di awal.</div>
+                    <div class="step-desc">Coba dulu — tanya resep, ringkasan buku, ide usaha, curhat, apapun. Semua gratis di awal.</div>
                 </div>
             </div>
             <div class="step">
@@ -221,7 +414,7 @@
                 <div class="step-icon">💰</div>
                 <div class="step-body">
                     <div class="step-title">Kalau suka, lanjut bayar</div>
-                    <div class="step-desc">Rp1.000/jam, Rp10.000/hari, atau Rp50.000/minggu. Murah banget.</div>
+                    <div class="step-desc">Mulai Rp1.000/jam, Rp10.000/hari, atau Rp50.000/minggu. Murah banget untuk temen digital pribadi.</div>
                 </div>
             </div>
         </div>
@@ -231,18 +424,19 @@
 <!-- FEATURES -->
 <section>
     <div class="container">
-        <div class="section-title">🌟 Bisa buat apa aja?</div>
+        <div class="section-title">Layanan</div>
+        <h2 class="section-heading">Bisa buat apa aja?</h2>
         <div class="section-sub">Aiman bisa bantu hampir semua hal dalam keseharian kamu.</div>
         <div class="features">
             <div class="feat">
                 <div class="feat-icon">🍳</div>
                 <div class="feat-title">Temen Masak</div>
-                <div class="feat-desc">Bingung masak apa? Resep step-by-step, tips dapur, sampe trik ngirit.</div>
+                <div class="feat-desc">Bingung masak apa? Resep step-by-step, tips dapur, sampe trik ngirit belanja.</div>
             </div>
             <div class="feat">
                 <div class="feat-icon">📚</div>
                 <div class="feat-title">Resume Buku</div>
-                <div class="feat-desc">Gak sempat baca buku tebal? Minta intisarinya ke Aiman.</div>
+                <div class="feat-desc">Gak sempat baca buku tebal? Minta intisarinya ke Aiman, 5 menit dapet ilmunya.</div>
             </div>
             <div class="feat">
                 <div class="feat-icon">💼</div>
@@ -257,7 +451,7 @@
             <div class="feat">
                 <div class="feat-icon">🖥️</div>
                 <div class="feat-title">Belajar Coding</div>
-                <div class="feat-desc">Dasar HTML, CSS, Python, Laravel — dari nol sampe bisa.</div>
+                <div class="feat-desc">Dasar HTML, CSS, Python, Laravel — dari nol sampe bisa bikin website.</div>
             </div>
             <div class="feat">
                 <div class="feat-icon">🤗</div>
@@ -271,31 +465,37 @@
 <!-- WHY -->
 <section>
     <div class="container">
-        <div class="section-title">🤔 Kenapa WAJAR.AI?</div>
+        <div class="section-title">Keunggulan</div>
+        <h2 class="section-heading">Kenapa harus WAJAR.AI?</h2>
+        <div class="section-sub">Gak perlu mikir dua kali. Ini alasannya.</div>
         <div class="steps">
             <div class="step">
-                <div class="step-icon">📱</div>
+                <div class="step-num">📱</div>
+                <div class="step-icon"></div>
                 <div class="step-body">
                     <div class="step-title">Gak perlu install app baru</div>
-                    <div class="step-desc">Cukup WhatsApp. Udah pasti semua orang punya.</div>
+                    <div class="step-desc">Cukup WhatsApp. Semua orang udah punya, gak perlu belajar aplikasi baru.</div>
                 </div>
             </div>
             <div class="step">
-                <div class="step-icon">⏰</div>
+                <div class="step-num">⏰</div>
+                <div class="step-icon"></div>
                 <div class="step-body">
                     <div class="step-title">24 jam, 7 hari seminggu</div>
-                    <div class="step-desc">Mau tengah malam atau subuh, Aiman siap bantu.</div>
+                    <div class="step-desc">Mau tengah malam atau subuh, Aiman siap bantu. Gak libur, gak ngeluh.</div>
                 </div>
             </div>
             <div class="step">
-                <div class="step-icon">💰</div>
+                <div class="step-num">💰</div>
+                <div class="step-icon"></div>
                 <div class="step-body">
                     <div class="step-title">Murahnya gak masuk akal</div>
-                    <div class="step-desc">Rp1.000/jam? Lebih murah dari parkir motor. Bahkan ada gratisnya.</div>
+                    <div class="step-desc">Rp1.000/jam? Lebih murah dari parkir motor. Ada gratisnya lagi.</div>
                 </div>
             </div>
             <div class="step">
-                <div class="step-icon">🎯</div>
+                <div class="step-num">🎯</div>
+                <div class="step-icon"></div>
                 <div class="step-body">
                     <div class="step-title">Buat semua orang</div>
                     <div class="step-desc">Ibu RT, santri, mahasiswa, bapak-bapak — semua pasti butuh.</div>
@@ -308,40 +508,41 @@
 <!-- PRICING -->
 <section>
     <div class="container">
-        <div class="section-title">💰 Harga</div>
-        <div class="section-sub">Cobain dulu gratis. Kalau suka, pilih paket di bawah.</div>
+        <div class="section-title">Harga</div>
+        <h2 class="section-heading">Cobain dulu gratis</h2>
+        <div class="section-sub">Kalau suka, pilih paket yang cocok. Gak ada kontrak, gak ada biaya tersembunyi.</div>
         <div class="pricing">
             <div class="price-row highlight">
                 <div class="price-info">
                     <div class="price-icon">🎁</div>
-                    <div class="price-label">Kuota Gratis<small>Cobain dulu 8.000 kata, tanpa resiko</small></div>
+                    <div class="price-label">Kuota Gratis<small>8.000 kata pertama — cobain dulu tanpa resiko</small></div>
                 </div>
-                <div class="price-amount" style="color:#2e7d32">Gratis</div>
+                <div class="price-amount">Gratis</div>
             </div>
             <div class="price-row">
                 <div class="price-info">
                     <div class="price-icon">⏱️</div>
-                    <div class="price-label">Per Jam<small>Pas lagi butuh bentar aja</small></div>
+                    <div class="price-label">Per Jam<small>Pas lagi butuh bentar aja — hemat kalau pemakaian ringan</small></div>
                 </div>
                 <div class="price-amount">Rp1.000</div>
             </div>
             <div class="price-row">
                 <div class="price-info">
                     <div class="price-icon">🌞</div>
-                    <div class="price-label">Per Hari<small>Lebih hemat, chat sepuasnya hari ini</small></div>
+                    <div class="price-label">Per Hari<small>Lebih hemat — chat sepuasnya seharian penuh</small></div>
                 </div>
                 <div class="price-amount">Rp10.000</div>
             </div>
             <div class="price-row">
                 <div class="price-info">
                     <div class="price-icon">📅</div>
-                    <div class="price-label">Per Pekan<small>Paling irit — bebas chat seminggu penuh</small></div>
+                    <div class="price-label">Per Pekan<small>Paling irit — bebas chat seminggu penuh tanpa batas</small></div>
                 </div>
                 <div class="price-amount">Rp50.000</div>
             </div>
         </div>
-        <div style="text-align:center;margin-top:16px;">
-            <a class="hero cta" href="https://lynk.id/wajarai" target="_blank">🛒 Pilih Paket &rarr;</a>
+        <div style="text-align:center;margin-top:24px;">
+            <a class="hero cta" href="https://lynk.id/wajarai" target="_blank">🛒 Pilih Paket <span style="font-size:12px;">&rarr;</span></a>
         </div>
     </div>
 </section>
@@ -349,11 +550,18 @@
 <!-- TESTIMONIAL -->
 <section>
     <div class="container">
-        <div class="section-title">💬 Kata Mereka</div>
-        <div class="section-sub">Yang udah nyoba WAJAR.AI, rata-rata balik lagi.</div>
-        <div class="testi">
-            "Awalnya coba gratis, cuma nanya resep ayam geprek. Eh ternyata Aiman bisa bantu banyak hal — dari resep, cara atur uang, sampe ajarin bikin website sambil rebahan. Gak nyangka Rp1rb/jam dapet ilmu sebanyak ini."
-            <div class="testi-author">— Ibu Siti, Ibu Rumah Tangga</div>
+        <div class="section-title">Testimoni</div>
+        <h2 class="section-heading">Kata Mereka yang Udah Coba</h2>
+        <div class="section-sub">Yang udah nyoba WAJAR.AI, rata-rata balik lagi dan langganan.</div>
+        <div class="testi-wrapper">
+            <div class="testi">
+                "Awalnya coba gratis, cuma nanya resep ayam geprek. Eh ternyata Aiman bisa bantu banyak hal — dari resep, cara atur uang, sampe ajarin bikin website. Gak nyangka Rp1rb/jam dapet ilmu sebanyak ini."
+                <div class="testi-author">Ibu Siti, Ibu Rumah Tangga</div>
+            </div>
+            <div class="testi">
+                "Pas lagi buntu tugas coding, Aiman ngebantu step-by-step sampe selesai. Gak cuma kasih kode, tapi juga jelasin logikanya. Ini luar biasa buat santri kayak saya."
+                <div class="testi-author">Ahmad, Santri Pondok Informatika</div>
+            </div>
         </div>
     </div>
 </section>
@@ -361,26 +569,29 @@
 <!-- FAQ -->
 <section>
     <div class="container">
-        <div class="section-title">❓ Tanya Jawab</div>
-        <div class="faq-item">
-            <div class="faq-q">Caranya gimana? Ribet gak?</div>
-            <div class="faq-a">Gak ribet. Chat nomor WAJAR.AI, tanya apa aja. Kayak chat temen biasa. Dijamin gak perlu install apa-apa.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q">Gratisnya beneran? Ada tangkapan?</div>
-            <div class="faq-a">Beneran gratis 8.000 kata pertama. Gak perlu daftar, gak perlu kasih data. Cobain dulu aja.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q">Aiman itu AI atau orang beneran?</div>
-            <div class="faq-a">AI. Tapi jangan khawatir — responnya ramah, paham konteks, dan bisa bantu hal-hal rumit. Banyak yang ngira Aiman orang beneran karena obrolannya natural.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q">Abis gratis, bayarnya gimana?</div>
-            <div class="faq-a">Via LynkID. Bisa QRIS, Gopay, OVO, transfer. Abis bayar, langsung lanjut chat. Gak ada potong-potong.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q">Dataku aman gak?</div>
-            <div class="faq-a">Aman. Chat bersifat pribadi, Aiman gak bocorin data ke siapapun. Semua tersimpan di server sendiri.</div>
+        <div class="section-title">Tanya Jawab</div>
+        <h2 class="section-heading">Pertanyaan Umum</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-q">Caranya gimana? Ribet gak?</div>
+                <div class="faq-a">Gak ribet sama sekali. Chat nomor WAJAR.AI, tanya apa aja. Kayak chat temen biasa. Dijamin gak perlu install apa-apa.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Gratisnya beneran? Ada tangkapan?</div>
+                <div class="faq-a">Beneran gratis 8.000 kata pertama. Gak perlu daftar, gak perlu kasih data pribadi. Cobain dulu aja, kalau gak suka ya tinggal.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Aiman itu AI atau orang beneran?</div>
+                <div class="faq-a">AI. Tapi responnya ramah, paham konteks, dan bisa bantu hal-hal rumit. Banyak yang ngira Aiman orang beneran karena obrolannya natural dan paham konteks.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Abis gratis, bayarnya gimana?</div>
+                <div class="faq-a">Via LynkID. Bisa QRIS, Gopay, OVO, transfer bank. Abis bayar, langsung lanjut chat. Gak ada potong-potong, gak ada tunggu lama.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Dataku aman gak?</div>
+                <div class="faq-a">Aman. Chat bersifat pribadi, Aiman gak bocorin data ke siapapun. Semua tersimpan di server sendiri yang aman.</div>
+            </div>
         </div>
     </div>
 </section>
@@ -389,16 +600,16 @@
 <div class="cta-section">
     <h2>Siap cobain WAJAR.AI? 🚀</h2>
     <p>Chat sekarang, gratis 8.000 kata. Gak ada ruginya nyoba.</p>
-    <a class="cta" href="https://lynk.id/wajarai" target="_blank">💬 Chat Aiman Gratis &rarr;</a>
-    <div style="margin-top:12px;font-size:12px;opacity:0.6;">Atau isi poin dulu buat jaga-jaga 😉</div>
+    <a class="cta" href="https://lynk.id/wajarai" target="_blank">💬 Chat Aiman Gratis <span style="font-size:12px;opacity:0.8;">&rarr;</span></a>
+    <div style="margin-top:14px;font-size:13px;opacity:0.6;">Atau top up kuota dulu lewat LynkID biar siap 😉</div>
 </div>
 
 <!-- FOOTER -->
 <footer>
     <div class="container">
-        <p><strong>WAJAR.AI</strong> — WA + Ajar + AI</p>
-        <p>Berdiri di atas Pondok Informatika &amp; Pesantren Teknologi, Makassar</p>
-        <p style="margin-top:6px;">&copy; 2026 WAJAR.AI. All rights reserved. 🤲</p>
+        <p><strong>WAJAR.AI</strong> — WA + Ajar + AI — <em>"Belajar apa aja, cukup WA aja"</em></p>
+        <p style="margin-top:6px;">Berdiri di atas <strong>Pondok Informatika</strong> &amp; Pesantren Teknologi, Makassar</p>
+        <p style="margin-top:10px;"><a href="https://pondokinformatika.id">pondokinformatika.id</a> &middot; 2026 WAJAR.AI 🤲</p>
     </div>
 </footer>
 
