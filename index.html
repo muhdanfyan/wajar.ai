@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAJAR.AI — Belajar apa aja, cukup WA aja</title>
+    <meta name="description" content="Chat AI via WhatsApp. Gratis cobain dulu. Resep masak, belajar coding, ide usaha, curhat — semua lewat satu nomor WA.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #1a1a2e;
+            background: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+        /* HERO */
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
+            background: linear-gradient(180deg, #f0f4ff 0%, #ffffff 100%);
+        }
+        .hero .brand { font-size: 42px; font-weight: 900; letter-spacing: -2px; color: #0f3460; }
+        .hero .brand span { color: #e94560; }
+        .hero .tagline { font-size: 20px; font-weight: 700; margin: 10px 0 6px; color: #1a1a2e; }
+        .hero .sub { font-size: 14px; color: #666; margin-bottom: 24px; }
+        .hero .cta {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s;
+        }
+        .hero .cta:hover { transform: scale(1.05); }
+        .hero .cta-sub { display: block; margin-top: 8px; font-size: 12px; color: #888; font-weight: 400; }
+
+        /* SECTIONS */
+        section { padding: 48px 0; }
+        section:nth-child(even) { background: #f8faff; }
+        .section-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0f3460;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .section-sub {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 28px;
+        }
+
+        /* HOW IT WORKS */
+        .steps { display: flex; flex-direction: column; gap: 12px; }
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: white;
+            border: 1px solid #e8ecf0;
+            border-radius: 12px;
+            padding: 16px 18px;
+        }
+        .step-num {
+            width: 36px;
+            height: 36px;
+            background: #0f3460;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        .step-body { flex: 1; }
+        .step-title { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+        .step-desc { font-size: 12.5px; color: #555; }
+        .step-icon { font-size: 28px; flex-shrink: 0; }
+
+        /* FEATURES */
+        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        @media (max-width: 480px) { .features { grid-template-columns: 1fr; } }
+        .feat {
+            background: white;
+            border: 1px solid #e8ecf0;
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+        .feat-icon { font-size: 32px; margin-bottom: 6px; }
+        .feat-title { font-weight: 700; font-size: 13px; margin-bottom: 4px; }
+        .feat-desc { font-size: 11.5px; color: #555; }
+
+        /* PRICING */
+        .pricing { display: flex; flex-direction: column; gap: 10px; }
+        .price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            border: 1px solid #e8ecf0;
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+        .price-row.highlight {
+            border-color: #0f3460;
+            background: #f0f4ff;
+        }
+        .price-info { display: flex; align-items: center; gap: 10px; }
+        .price-icon { font-size: 24px; }
+        .price-label { font-weight: 600; font-size: 13px; }
+        .price-label small { font-weight: 400; color: #888; font-size: 11px; display: block; }
+        .price-amount { font-weight: 800; font-size: 18px; color: #0f3460; white-space: nowrap; }
+        .price-row.highlight .price-amount { color: #e94560; font-size: 20px; }
+
+        /* TESTIMONIAL */
+        .testi {
+            background: white;
+            border: 1px solid #e8ecf0;
+            border-radius: 10px;
+            padding: 16px;
+            font-style: italic;
+            font-size: 13px;
+            color: #444;
+        }
+        .testi-author { margin-top: 6px; font-size: 11px; color: #888; font-style: normal; font-weight: 600; }
+
+        /* FAQ */
+        .faq-item {
+            background: white;
+            border: 1px solid #e8ecf0;
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-bottom: 8px;
+        }
+        .faq-q { font-weight: 700; font-size: 13px; margin-bottom: 4px; color: #0f3460; }
+        .faq-a { font-size: 12.5px; color: #555; }
+
+        /* CTA BOTTOM */
+        .cta-section {
+            text-align: center;
+            padding: 48px 0;
+            background: #0f3460;
+            color: white;
+        }
+        .cta-section h2 { font-size: 22px; margin-bottom: 8px; }
+        .cta-section p { font-size: 13px; opacity: 0.8; margin-bottom: 20px; }
+        .cta-section .cta {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s;
+        }
+        .cta-section .cta:hover { transform: scale(1.05); }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 24px;
+            font-size: 11px;
+            color: #999;
+            background: #f8faff;
+        }
+
+        .badge { display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="container">
+        <div class="brand">WAJAR.<span>AI</span></div>
+        <div class="tagline">Belajar apa aja, cukup WA aja</div>
+        <div class="sub">🤖 Temen digital yang siap bantu kapan pun kamu butuh</div>
+        <a class="cta" href="https://lynk.id/wajarai" target="_blank">💬 Chat Aiman Gratis &rarr;</a>
+        <span class="cta-sub">🎁 Gratis cobain dulu, kalau suka baru bayar</span>
+    </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section>
+    <div class="container">
+        <div class="section-title">🚀 Cara Kerjanya</div>
+        <div class="section-sub">Sederhana. Chat aja. Gak perlu install app tambahan.</div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-icon">💬</div>
+                <div class="step-body">
+                    <div class="step-title">Chat nomor WAJAR.AI</div>
+                    <div class="step-desc">Buka WA, cari nomor WAJAR.AI, tanya apa aja. Gampang kan?</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-icon">🎁</div>
+                <div class="step-body">
+                    <div class="step-title">Dapet 8.000 kata gratis</div>
+                    <div class="step-desc">Coba dulu — tanya resep, buku, coding, curhat. Semua gratis di awal.</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-icon">💰</div>
+                <div class="step-body">
+                    <div class="step-title">Kalau suka, lanjut bayar</div>
+                    <div class="step-desc">Rp1.000/jam, Rp10.000/hari, atau Rp50.000/minggu. Murah banget.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section>
+    <div class="container">
+        <div class="section-title">🌟 Bisa buat apa aja?</div>
+        <div class="section-sub">Aiman bisa bantu hampir semua hal dalam keseharian kamu.</div>
+        <div class="features">
+            <div class="feat">
+                <div class="feat-icon">🍳</div>
+                <div class="feat-title">Temen Masak</div>
+                <div class="feat-desc">Bingung masak apa? Resep step-by-step, tips dapur, sampe trik ngirit.</div>
+            </div>
+            <div class="feat">
+                <div class="feat-icon">📚</div>
+                <div class="feat-title">Resume Buku</div>
+                <div class="feat-desc">Gak sempat baca buku tebal? Minta intisarinya ke Aiman.</div>
+            </div>
+            <div class="feat">
+                <div class="feat-icon">💼</div>
+                <div class="feat-title">Ide Usaha</div>
+                <div class="feat-desc">Hitung modal, bikin rencana, sampe tips jualan online.</div>
+            </div>
+            <div class="feat">
+                <div class="feat-icon">📱</div>
+                <div class="feat-title">Bantuan HP</div>
+                <div class="feat-desc">HP lemot? WA error? Kena virus? Aiman bantu step-by-step.</div>
+            </div>
+            <div class="feat">
+                <div class="feat-icon">🖥️</div>
+                <div class="feat-title">Belajar Coding</div>
+                <div class="feat-desc">Dasar HTML, CSS, Python, Laravel — dari nol sampe bisa.</div>
+            </div>
+            <div class="feat">
+                <div class="feat-icon">🤗</div>
+                <div class="feat-title">Teman Curhat</div>
+                <div class="feat-desc">Pengen cerita? Aiman dengerin. Gak judge, gak bocorin rahasia.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY -->
+<section>
+    <div class="container">
+        <div class="section-title">🤔 Kenapa WAJAR.AI?</div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-icon">📱</div>
+                <div class="step-body">
+                    <div class="step-title">Gak perlu install app baru</div>
+                    <div class="step-desc">Cukup WhatsApp. Udah pasti semua orang punya.</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-icon">⏰</div>
+                <div class="step-body">
+                    <div class="step-title">24 jam, 7 hari seminggu</div>
+                    <div class="step-desc">Mau tengah malam atau subuh, Aiman siap bantu.</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-icon">💰</div>
+                <div class="step-body">
+                    <div class="step-title">Murahnya gak masuk akal</div>
+                    <div class="step-desc">Rp1.000/jam? Lebih murah dari parkir motor. Bahkan ada gratisnya.</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-icon">🎯</div>
+                <div class="step-body">
+                    <div class="step-title">Buat semua orang</div>
+                    <div class="step-desc">Ibu RT, santri, mahasiswa, bapak-bapak — semua pasti butuh.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section>
+    <div class="container">
+        <div class="section-title">💰 Harga</div>
+        <div class="section-sub">Cobain dulu gratis. Kalau suka, pilih paket di bawah.</div>
+        <div class="pricing">
+            <div class="price-row highlight">
+                <div class="price-info">
+                    <div class="price-icon">🎁</div>
+                    <div class="price-label">Kuota Gratis<small>Cobain dulu 8.000 kata, tanpa resiko</small></div>
+                </div>
+                <div class="price-amount" style="color:#2e7d32">Gratis</div>
+            </div>
+            <div class="price-row">
+                <div class="price-info">
+                    <div class="price-icon">⏱️</div>
+                    <div class="price-label">Per Jam<small>Pas lagi butuh bentar aja</small></div>
+                </div>
+                <div class="price-amount">Rp1.000</div>
+            </div>
+            <div class="price-row">
+                <div class="price-info">
+                    <div class="price-icon">🌞</div>
+                    <div class="price-label">Per Hari<small>Lebih hemat, chat sepuasnya hari ini</small></div>
+                </div>
+                <div class="price-amount">Rp10.000</div>
+            </div>
+            <div class="price-row">
+                <div class="price-info">
+                    <div class="price-icon">📅</div>
+                    <div class="price-label">Per Pekan<small>Paling irit — bebas chat seminggu penuh</small></div>
+                </div>
+                <div class="price-amount">Rp50.000</div>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:16px;">
+            <a class="hero cta" href="https://lynk.id/wajarai" target="_blank">🛒 Pilih Paket &rarr;</a>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section>
+    <div class="container">
+        <div class="section-title">💬 Kata Mereka</div>
+        <div class="section-sub">Yang udah nyoba WAJAR.AI, rata-rata balik lagi.</div>
+        <div class="testi">
+            "Awalnya coba gratis, cuma nanya resep ayam geprek. Eh ternyata Aiman bisa bantu banyak hal — dari resep, cara atur uang, sampe ajarin bikin website sambil rebahan. Gak nyangka Rp1rb/jam dapet ilmu sebanyak ini."
+            <div class="testi-author">— Ibu Siti, Ibu Rumah Tangga</div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section>
+    <div class="container">
+        <div class="section-title">❓ Tanya Jawab</div>
+        <div class="faq-item">
+            <div class="faq-q">Caranya gimana? Ribet gak?</div>
+            <div class="faq-a">Gak ribet. Chat nomor WAJAR.AI, tanya apa aja. Kayak chat temen biasa. Dijamin gak perlu install apa-apa.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Gratisnya beneran? Ada tangkapan?</div>
+            <div class="faq-a">Beneran gratis 8.000 kata pertama. Gak perlu daftar, gak perlu kasih data. Cobain dulu aja.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Aiman itu AI atau orang beneran?</div>
+            <div class="faq-a">AI. Tapi jangan khawatir — responnya ramah, paham konteks, dan bisa bantu hal-hal rumit. Banyak yang ngira Aiman orang beneran karena obrolannya natural.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Abis gratis, bayarnya gimana?</div>
+            <div class="faq-a">Via LynkID. Bisa QRIS, Gopay, OVO, transfer. Abis bayar, langsung lanjut chat. Gak ada potong-potong.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Dataku aman gak?</div>
+            <div class="faq-a">Aman. Chat bersifat pribadi, Aiman gak bocorin data ke siapapun. Semua tersimpan di server sendiri.</div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA BOTTOM -->
+<div class="cta-section">
+    <h2>Siap cobain WAJAR.AI? 🚀</h2>
+    <p>Chat sekarang, gratis 8.000 kata. Gak ada ruginya nyoba.</p>
+    <a class="cta" href="https://lynk.id/wajarai" target="_blank">💬 Chat Aiman Gratis &rarr;</a>
+    <div style="margin-top:12px;font-size:12px;opacity:0.6;">Atau isi poin dulu buat jaga-jaga 😉</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p><strong>WAJAR.AI</strong> — WA + Ajar + AI</p>
+        <p>Berdiri di atas Pondok Informatika &amp; Pesantren Teknologi, Makassar</p>
+        <p style="margin-top:6px;">&copy; 2026 WAJAR.AI. All rights reserved. 🤲</p>
+    </div>
+</footer>
+
+</body>
+</html>
