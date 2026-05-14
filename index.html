@@ -73,45 +73,43 @@
             align-items: center;
             background: linear-gradient(145deg, #0b1a30 0%, #0f3460 40%, #1a4a7a 70%, #0f3460 100%);
             text-align: center;
-            padding-top: 80px;
+            padding-top: 70px;
         }
         .hero .brand {
-            font-size: 56px;
+            font-size: 40px;
             font-weight: 900;
-            letter-spacing: -3px;
+            letter-spacing: -2px;
             color: white;
             line-height: 1.05;
+            margin-bottom: 12px;
         }
         .hero .brand span { color: var(--accent); }
-        .hero .tagline {
-            font-size: 18px;
-            font-weight: 500;
-            color: rgba(255,255,255,0.75);
-            margin: 6px 0 16px;
-        }
         .hero .poster-img {
-            max-width: 80%;
+            max-width: 85%;
             width: 100%;
             height: auto;
-            border-radius: 16px;
+            border-radius: 12px;
             display: block;
-            margin: 0 auto 28px;
+            margin: 0 auto 20px;
+        }
+        .hero .tagline {
+            font-size: 15px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.55);
+            margin: 0 0 24px;
         }
         .hero .cta {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             background: var(--accent);
             color: white;
-            padding: 16px 44px;
+            padding: 14px 40px;
             border-radius: 50px;
-            font-size: 16px;
-            font-weight: 700;
+            font-size: 15px;
+            font-weight: 600;
             text-decoration: none;
-        }
-        .hero .cta:hover { transform: translateY(-2px); }
-
-        /* ===== SECTIONS ===== */
+        }/* ===== SECTIONS ===== */
         section { padding: 64px 0; }
         section:nth-child(even) { background: var(--bg-muted); }
         .section-title {
@@ -258,10 +256,10 @@
         footer .footer-copy { font-size: 11px; opacity: 0.5; margin-top: 10px; }
 
         @media (max-width: 768px) {
-            .hero .brand { font-size: 38px; letter-spacing: -2px; }
-            .hero .tagline { font-size: 15px; }
-            .hero .poster-img { max-width: 75%; }
-            .hero .cta { padding: 14px 30px; font-size: 14px; }
+            .hero .brand { font-size: 32px; letter-spacing: -1.5px; }
+            .hero .poster-img { max-width: 80%; }
+            .hero .tagline { font-size: 14px; }
+            .hero .cta { padding: 12px 30px; font-size: 14px; }
             .section-heading { font-size: 22px; }
             .grid-2 { grid-template-columns: 1fr; }
             .step { padding: 14px 16px; }
@@ -289,8 +287,8 @@
 <section class="hero">
     <div class="container">
         <div class="brand">WAJAR.<span>AI</span></div>
+        <img src="hero-poster.png" alt="WAJAR.AI - Guru Ngopi Sejati" class="poster-img" />
         <p class="tagline">Belajar apa aja, cukup WA aja</p>
-        <img src="hero-poster.png" alt="WAJAR.AI" class="poster-img" />
         <a class="cta" href="https://wa.me/6282189456728?text=Halo+Aiman%2C+gratis+dong" target="_blank">💬 Coba Gratis</a>
     </div>
 </section>
