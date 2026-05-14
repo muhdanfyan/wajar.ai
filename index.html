@@ -135,12 +135,12 @@
         .hero .usp-item .emoji-bullet { margin-right: 6px; }
         .hero .phone-wrapper {
             position: relative;
-            width: 240px;
+            width: 300px;
             flex-shrink: 0;
-            filter: drop-shadow(0 8px 32px rgba(0,0,0,0.3));
+            filter: drop-shadow(0 8px 40px rgba(0,0,0,0.35));
         }
         .hero .phone-mock {
-            width: 240px;
+            width: 100%;
             height: auto;
             display: block;
             margin: 0 auto;
@@ -209,9 +209,9 @@
             }
             .hero .phone-wrapper {
                 margin: 8px auto;
-                width: 180px;
+                width: 240px;
             }
-            .hero .phone-mock { width: 180px; }
+            .hero .phone-mock { width: 100%; }
             .hero .brand { font-size: 38px; }
             .hero .tagline { font-size: 14px; }
         }
@@ -479,39 +479,7 @@
             </div>
 
             <div class="phone-wrapper">
-                <svg class="phone-mock" viewBox="0 0 240 460" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="screenGrad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#0f1923"/>
-                            <stop offset="100%" stop-color="#0a0f16"/>
-                        </linearGradient>
-                        <linearGradient id="btnGrad" x1="0" y1="0" x2="1" y2="0">
-                            <stop offset="0%" stop-color="#e18f3a"/>
-                            <stop offset="100%" stop-color="#d47c2a"/>
-                        </linearGradient>
-                        <linearGradient id="friendGrad" x1="0" y1="0" x2="1" y2="0">
-                            <stop offset="0%" stop-color="#263445"/>
-                            <stop offset="100%" stop-color="#1e2b3a"/>
-                        </linearGradient>
-                    </defs>
-                    <rect x="12" y="6" width="216" height="448" rx="36" fill="#141722" stroke="#2a3444" stroke-width="2"/>
-                    <rect x="20" y="28" width="200" height="404" rx="22" fill="url(#screenGrad)"/>
-                    <rect x="85" y="12" width="70" height="10" rx="5" fill="#141722"/>
-                    <circle cx="120" cy="382" r="5" fill="#fff" opacity="0.08"/>
-                    <rect x="90" cy="388" width="60" height="4" rx="2" fill="#2a3444" transform="translate(90, 388)"/>
-                    <rect x="30" y="52" width="160" height="30" rx="14" fill="url(#btnGrad)" opacity="0.92"/>
-                    <text x="48" y="72" font-size="11" fill="white" font-family="sans-serif" font-weight="600">Halo Aiman, gratis dong?</text>
-                    <rect x="40" y="94" width="170" height="30" rx="14" fill="url(#friendGrad)" opacity="0.92"/>
-                    <text x="56" y="114" font-size="11" fill="#c9d1d9" font-family="sans-serif">Tentu! Mau tanya apa hari ini? 😊</text>
-                    <rect x="30" y="138" width="140" height="30" rx="14" fill="url(#btnGrad)" opacity="0.92"/>
-                    <text x="48" y="158" font-size="11" fill="white" font-family="sans-serif" font-weight="600">Jelasin tafsir Al-Fatihah</text>
-                    <rect x="40" y="180" width="175" height="44" rx="14" fill="url(#friendGrad)" opacity="0.92"/>
-                    <text x="56" y="200" font-size="11" fill="#c9d1d9" font-family="sans-serif">Al-Fatihah adalah induk Al-Quran...</text>
-                    <text x="56" y="216" font-size="10" fill="#6b7c93" font-family="sans-serif">Mau lanjut ke ayat 1? 👇</text>
-                    <circle cx="50" cy="285" r="5" fill="#e18f3a" opacity="0.5"/>
-                    <circle cx="65" cy="285" r="5" fill="#e18f3a" opacity="0.3"/>
-                    <circle cx="80" cy="285" r="5" fill="#e18f3a" opacity="0.15"/>
-                </svg>
+                <img src="hero-poster.png" alt="WAJAR.AI Poster" class="phone-mock" style="width:100%;height:auto;border-radius:24px;box-shadow:0 12px 48px rgba(0,0,0,0.4);" />
             </div>
 
             <div class="right-col">
