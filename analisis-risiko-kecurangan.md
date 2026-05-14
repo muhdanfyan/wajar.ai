@@ -204,3 +204,114 @@ User iseng chat "coba jawab 1+1" trus "coba 2+2" trus "coba 3+3" — 100 pertany
 **Diskusi:**
 - Perlu disclaimer: "WAJAR.AI adalah AI, tidak 100% akurat. Cross-check dengan guru."
 - Atau Aiman selalu bilang "cek lagi ya" untuk jawaban kritis?
+
+---
+
+## 🎯 BAGIAN 4: SKEMA PEMBATASAN & MULTI-KATEGORI
+
+### 4.1 SKEMA DASAR
+
+Setiap user WAJAR.AI punya **kategori utama** yang dipilih saat daftar. Tapi mereka juga bisa:
+
+### OPSI A: SEMUA AKSES (All-You-Can-Learn)
+
+**Cocok untuk:** Premium bulanan (Rp150rb)
+
+**Aturan:**
+- User akses SEMUA kategori tanpa batas
+- Matematika, Coding, Ngaji, Masak, Curhat — semua bisa
+- Waktu premium dihitung global (bukan per kategori)
+
+💰 **Bisnis:** Rp150rb/bulan = nilai tertinggi, kasih semua
+
+### OPSI B: PAKET KATEGORI TUNGGAL
+
+**Cocok untuk:** Per jam / per hari
+
+**Aturan:**
+- User pilih **1 kategori aktif** (misal: Matematika)
+- Kalau mau ganti kategori → bayar lagi atau upgrade paket
+
+💰 **Bisnis:** Rp1rb/jam = 1 kategori. Kalau mau 2 kategori = Rp2rb/jam
+
+### OPSI C: PAKET MULTI KATEGORI (Upgrade)
+
+**Cocok untuk:** User yang butuh >1 kategori
+
+**Harga khusus:**
+- 2 kategori: Rp1.500/jam (hemat 25%)
+- 3+ kategori: Rp2.000/jam (all access)
+- Khusus Premium: free all kategori
+
+**Contoh:**
+```
+User: "Aku mau belajar Masak sama IT"
+Aiman: "Bisa! Per jam Rp1rb untuk 1 kategori.
+        Kalau mau 2 kategori, Rp1.500/jam aja (hemat 500)."
+
+User: "Aku juga mau curhat kadang"
+Aiman: "Curhat masuk kategori umum — free aja, 
+        gak diitung sebagai kategori khusus 😊"
+```
+
+### 4.2 KATEGORI GRATIS VS BERBAYAR
+
+| KATEGORI | GRATIS (8rb kata) | PREMIUM |
+|----------|:-----------------:|:-------:|
+| 📚 Akademik (Mat, Fis, dll) | ✅ | ✅ Unlimited |
+| 💻 IT & Coding | ✅ | ✅ Unlimited |
+| 🕌 Agama & Ngaji | ✅ | ✅ Unlimited |
+| 🎨 Kreatif (Desain, Menulis) | ✅ | ✅ Unlimited |
+| 🍳 Masak / Hobi | ✅ | ✅ Unlimited |
+| 💬 Curhat / Konsultasi | ✅ **terbatas** | ✅ Unlimited |
+| 🔧 Bantuan Teknis (PR, Tugas) | ❌ | ✅ Unlimited |
+
+### 4.3 CATATAN KHUSUS: CURHAT
+
+Curhat beda sendiri karena:
+- ✅ Masuk kategori "mental health" / "curhat"
+- ✅ Gratis: 500 kata per sesi (biar gak abis jatah belajar)
+- ✅ Premium: unlimited (ini nilai plus yang bikin user betah bayar)
+- ⚠️ Batasan: Aiman bukan psikolog. Kalau curhat berat → arahkan ke profesional.
+- 💬 Aiman: "Aiman dengerin cerita kamu. Tapi kalau ini berat, Aiman sarankan konsultasi ke ahlinya ya."
+
+### 4.4 ALUR USER GANTI / TAMBAH KATEGORI
+
+```
+User: "Aku mau belajar Coding juga"
+Aiman: "Kategori aktif kamu sekarang: Matematika.
+        Mau:
+        [1] Ganti ke Coding (kategori berubah)
+        [2] Tambah Coding (Rp500/jam tambahan)"
+        
+User: [pilih]
+
+Kalau [1]: Kategori diganti, riwayat Matematika tetap disimpan.
+Kalau [2]: Hitungan multi-kategori, durasi premium diakumulasi.
+```
+
+### 4.5 IMPLEMENTASI DI DATABASE
+
+**tb_progress_belajar — tambah kolom:**
+
+```sql
+ALTER TABLE tb_progress_belajar ADD COLUMN kategori_list TEXT DEFAULT NULL;
+-- Format: "Matematika,IT,Masak"
+-- Kategori utama (pertama) = yang dipilih saat daftar
+
+ALTER TABLE tb_progress_belajar ADD COLUMN multi_kategori INTEGER DEFAULT 0;
+-- 0 = single kategori, 1 = multi kategori
+```
+
+**tb_paket_user (tabel baru):**
+
+| Kolom | Tipe | Keterangan |
+|-------|------|------------|
+| id_paket | INTEGER PK | Auto |
+| nomor_user | TEXT | Nomor WA |
+| tipe | TEXT | jam/hari/minggu/bulan |
+| kategori_list | TEXT | "Matematika,Coding" |
+| harga | INTEGER | Rp |
+| sisa_waktu_menit | INTEGER | Sisa |
+| status | TEXT | aktif/expired |
+| dibuat | DATETIME | |

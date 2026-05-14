@@ -215,3 +215,33 @@ Ini memastikan:
 - ✅ Aiman tahu level & topik masing-masing
 - ✅ Bang Dadan bisa lihat statistik
 - ✅ Survey bisa dikirim tepat waktu
+
+---
+
+## 📋 UPDATE: SKEMA MULTI-KATEGORI
+
+### Aturan Dasar
+- **Premium Rp150rb/bulan** → All-akses (semua kategori)
+- **Per jam Rp1rb** → 1 kategori
+- **Tambah kategori** → Rp500/jam/kategori tambahan
+- **Curhat** → Gratis 500 kata/sesi, Premium unlimited
+- **Ganti kategori** → Bisa kapan aja, progress kategori lama tetap disimpan
+
+### Kategori Tersedia
+1. 📚 Akademik (Matematika, Fisika, Kimia, dll)
+2. 💻 IT & Coding (Python, Web, AI Tools)
+3. 🕌 Agama (Ngaji, Tahsin, Tahfidz, Fiqih)
+4. 🎨 Kreatif (Desain, Menulis, Konten)
+5. 🍳 Hobi (Masak, dll)
+6. 💬 Curhat/Konsultasi (terbatas untuk gratis)
+
+### Harga Tambahan Kategori
+| Paket | 1 Kategori | 2 Kategori | 3+ (All) |
+|-------|:----------:|:----------:|:--------:|
+| Per Jam | Rp1.000 | Rp1.500 | Rp2.000 |
+| Per Hari | Rp10.000 | Rp15.000 | Rp20.000 |
+| Per Minggu | Rp50.000 | Rp75.000 | Rp100.000 |
+| Per Bulan | Rp150.000 | — | **All free** |
+
+### Multi-user dalam satu kategori: Tidak terbatas jumlah user per kategori
+### Riwayat kategori: Tersimpan — user bisa lanjut dari progress terakhir kapan aja
