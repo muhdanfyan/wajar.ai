@@ -218,12 +218,12 @@
 
         /* ===== CTA SECTION ===== */
         .cta-section {
-            background: linear-gradient(145deg, #0b1a30 0%, #0f3460 40%, #1a4a7a 100%);
             text-align: center;
             padding: 60px 24px;
+            background: var(--bg-muted);
         }
-        .cta-section h2 { font-size: 28px; font-weight: 800; color: white; }
-        .cta-section p { font-size: 14px; color: rgba(255,255,255,0.55); margin: 10px 0 24px; }
+        .cta-section h2 { font-size: 28px; font-weight: 800; color: var(--text); }
+        .cta-desc { font-size: 14px; color: var(--text-muted); margin: 10px 0 24px; }
         .cta-section .cta {
             display: inline-flex;
             align-items: center;
@@ -237,7 +237,7 @@
             text-decoration: none;
         }
         .cta-section .cta:hover { transform: translateY(-2px); }
-        .cta-footer-note { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 14px; }
+        .cta-footer-note { font-size: 13px; color: var(--text-muted); margin-top: 14px; }
 
         /* ===== FOOTER ===== */
         footer {
@@ -422,7 +422,7 @@
 <!-- CTA -->
 <section class="cta-section">
     <h2>Cobain dulu gratis</h2>
-    <p>8.000 kata pertama gak dipungut biaya. Nanti kalau suka, baru pikirin bayar.</p>
+    <p class="cta-desc">8.000 kata pertama gak dipungut biaya. Nanti kalau suka, baru pikirin bayar.</p>
     <a class="cta" href="https://wa.me/6282189456728?text=Halo+Aiman%2C+gratis+dong" target="_blank">💬 Chat Aiman Gratis</a>
     <div class="cta-footer-note">Atau chat "Mau bayar" kalau udah siap langganan 😉</div>
 </section>
