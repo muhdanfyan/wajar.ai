@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WAJAR.AI — AI lewat WhatsApp, ngerti pesantren, semurah ngopi</title>
-    <meta name="description" content="Satu-satunya AI yang bisa kamu akses lewat WhatsApp. Ngerti konteks pesantren, ngerti adab, bisa Bahasa Arab. Gratis cobain. Rp1rb/jam setelahnya.">
-    <meta property="og:title" content="WAJAR.AI — AI lewat WA, ngerti pesantren, semurah ngopi">
-    <meta property="og:description" content="Gak perlu install app. Gak perlu daftar. Cukup simpen satu nomor WA. Ini AI yang paling wajar sedunia.">
+    <title>WAJAR.AI — Belajar apa aja, cukup WA aja</title>
+    <meta name="description" content="Chat AI via WhatsApp. Gratis cobain dulu. Resep masak, belajar coding, ide usaha, curhat — semua lewat satu nomor WA.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -43,7 +41,6 @@
         }
 
         .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
-        .container-wide { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
         /* ===== NAVBAR ===== */
         .navbar {
@@ -75,105 +72,51 @@
         }
         .nav-cta:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(225, 143, 58, 0.3); }
 
-        /* ===== HERO — ala Poster Bang Dadan ===== */
+        /* ===== HERO ===== */
         .hero {
+            padding: 120px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, #f0f4ff 0%, #ffffff 60%, #ffffff 100%);
             position: relative;
             overflow: hidden;
-            background: linear-gradient(145deg, #0b1a30 0%, #0f3460 35%, #1a4a7a 65%, #0f3460 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            color: white;
-            padding: 70px 0 50px;
         }
-        .hero .hero-bg-glow {
+        .hero::before {
+            content: '';
             position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(225,143,58,0.08) 0%, transparent 70%);
+            top: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(225, 143, 58, 0.06) 0%, transparent 70%);
             pointer-events: none;
-            z-index: 0;
         }
-        .hero .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 24px;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-        .hero .left-col {
-            text-align: right;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        .hero .right-col {
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        .hero .usp-item {
-            background: rgba(255,255,255,0.07);
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 14px;
-            padding: 14px 20px;
-            font-size: 13px;
-            line-height: 1.5;
-            transition: all 0.3s;
-            max-width: 300px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
-        .hero .left-col .usp-item { margin-left: auto; }
-        .hero .usp-item:hover { background: rgba(255,255,255,0.1); transform: translateY(-1px); }
-        .hero .usp-item strong { color: #f5b754; display: block; font-size: 14px; margin-bottom: 3px; letter-spacing: -0.3px; }
-        .hero .usp-item .emoji-bullet { margin-right: 6px; }
-        .hero .phone-wrapper {
-            position: relative;
-            width: 300px;
-            flex-shrink: 0;
-            filter: drop-shadow(0 8px 40px rgba(0,0,0,0.35));
-        }
-        .hero .phone-mock {
-            width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-        .hero .hero-top {
-            text-align: center;
-            margin-bottom: 36px;
-            position: relative;
-            z-index: 2;
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(15, 52, 96, 0.04) 0%, transparent 70%);
+            pointer-events: none;
         }
         .hero .brand {
-            font-size: 60px;
+            font-size: 52px;
             font-weight: 900;
             letter-spacing: -3px;
-            color: white;
-            line-height: 1.05;
-            text-shadow: 0 2px 20px rgba(225,143,58,0.15);
+            color: var(--navy);
+            line-height: 1.1;
         }
         .hero .brand span { color: var(--accent); }
-        .hero .tagline {
-            font-size: 18px;
-            font-weight: 500;
-            margin: 10px 0 0;
-            color: rgba(255,255,255,0.65);
-            max-width: 600px;
+        .hero .tagline { font-size: 24px; font-weight: 700; margin: 12px 0 8px; color: var(--text); }
+        .hero .sub {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
-        }
-        .hero .cta-wrapper {
-            text-align: center;
-            margin-top: 44px;
-            position: relative;
-            z-index: 2;
+            line-height: 1.6;
         }
         .hero .cta {
             display: inline-flex;
@@ -181,39 +124,27 @@
             gap: 10px;
             background: var(--accent);
             color: white;
-            padding: 18px 48px;
+            padding: 18px 42px;
             border-radius: 50px;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 700;
             text-decoration: none;
             box-shadow: 0 8px 24px rgba(225, 143, 58, 0.3);
             transition: all 0.3s;
+            position: relative;
+            z-index: 2;
         }
-        .hero .cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(225, 143, 58, 0.5); }
-        .hero .cta-sub { display: block; margin-top: 14px; font-size: 13px; color: rgba(255,255,255,0.45); font-weight: 500; }
-        .hero .cta-sub span { background: rgba(255,255,255,0.08); padding: 2px 10px; border-radius: 4px; color: #aed581; font-weight: 700; }
-        @media (max-width: 900px) {
-            .hero .hero-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 12px;
-            }
-            .hero .left-col, .hero .right-col {
-                text-align: center;
-            }
-            .hero .left-col .usp-item, .hero .usp-item {
-                margin-left: auto;
-                margin-right: auto;
-                max-width: 320px;
-                text-align: center;
-            }
-            .hero .phone-wrapper {
-                margin: 8px auto;
-                width: 240px;
-            }
-            .hero .phone-mock { width: 100%; }
-            .hero .brand { font-size: 38px; }
-            .hero .tagline { font-size: 14px; }
+        .hero .cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(225, 143, 58, 0.4); }
+        .hero .cta-sub { display: block; margin-top: 14px; font-size: 13px; color: var(--text-muted); font-weight: 500; }
+        .hero .cta-sub span { background: var(--green-light); padding: 2px 8px; border-radius: 4px; color: #2e7d32; font-weight: 700; }
+        .hero .poster-img {
+            max-width: 380px;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            margin: 28px auto 0;
+            display: block;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.12);
         }
 
         /* ===== SECTIONS ===== */
@@ -447,7 +378,7 @@
 <nav class="navbar">
     <div class="container">
         <div class="nav-brand">WAJAR.<span>AI</span></div>
-        <a class="nav-cta" href="https://lynk.id/wajarai" target="_blank">
+        <a class="nav-cta" href="https://wa.me/6282189456728?text=Halo+Aiman%2C+gratis+dong" target="_blank">
             💬 Chat Aiman
         </a>
     </div>
@@ -455,53 +386,13 @@
 
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-bg-glow"></div>
-    <div class="container-wide">
-        <div class="hero-top">
-            <div class="brand">WAJAR.<span>AI</span></div>
-            <div class="tagline">Satu-satunya AI yang paham pesantren — tinggal chat WA</div>
-        </div>
-
-        <div class="hero-grid">
-            <div class="left-col">
-                <div class="usp-item">
-                    <strong>🎓 Guru Ngopi Sejati</strong>
-                    Ngobrol santai kayak chat temen, tapi dalem ilmunya. Paham adab, paham pesantren.
-                </div>
-                <div class="usp-item">
-                    <strong>💬 Satu Nomor WA. Selesai.</strong>
-                    Gak perlu download aplikasi, gak perlu daftar. Cukup simpen nomor Aiman di HP kamu.
-                </div>
-                <div class="usp-item">
-                    <strong>☕ Murahnya Warung Kopi</strong>
-                    Rp1.000/jam. Iya, seribu per jam. Setara harga kopi buat belajar seharian.
-                </div>
-            </div>
-
-            <div class="phone-wrapper">
-                <img src="hero-poster.png" alt="WAJAR.AI Poster" class="phone-mock" style="width:100%;height:auto;border-radius:24px;box-shadow:0 12px 48px rgba(0,0,0,0.4);" />
-            </div>
-
-            <div class="right-col">
-                <div class="usp-item">
-                    <strong>🚀 Bisa Bantu APA SAJA</strong>
-                    Tanya tafsir, bikin soal ujian, konsultasi skripsi, coding, nulis artikel — satu chat aja.
-                </div>
-                <div class="usp-item">
-                    <strong>🌙 24 Jam Gak Libur</strong>
-                    Tengah malam, subuh, pas lagi buntu mikir — Aiman selalu online. Gak pernah ngeluh.
-                </div>
-                <div class="usp-item">
-                    <strong>🏆 Gak Bisa Ditiru</strong>
-                    Kompetitor bikin aplikasi ribet. Aiman cuma lewat WA. Ini yang gak bisa mereka tiru.
-                </div>
-            </div>
-        </div>
-
-        <div class="cta-wrapper">
-            <a class="cta" href="https://wa.me/6282189456728?text=Halo+Aiman%2C+gratis+dong" target="_blank">💬 Coba Gratis <span style="font-size:12px;opacity:0.8;">&rarr;</span></a>
-            <span class="cta-sub"><span>🎁 8.000 kata gratis</span> — cobain dulu, kalau suka baru bayar. <strong>Gak ada yang kasih beginian.</strong></span>
-        </div>
+    <div class="container">
+        <div class="brand">WAJAR.<span>AI</span></div>
+        <div class="tagline">Belajar apa aja, cukup WA aja</div>
+        <div class="sub">🤖 Temen digital yang siap bantu kapan pun kamu butuh — dari resep masak sampe coding.</div>
+        <img src="hero-poster.png" alt="WAJAR.AI - Guru Ngopi Sejati" class="poster-img" />
+        <a class="cta" href="https://wa.me/6282189456728?text=Halo+Aiman%2C+gratis+dong" target="_blank">💬 Chat Aiman Gratis <span style="font-size:12px;opacity:0.8;">&rarr;</span></a>
+        <span class="cta-sub"><span>🎁 8.000 kata gratis</span> — cobain dulu, kalau suka baru bayar</span>
     </div>
 </section>
 
@@ -585,49 +476,39 @@
 <section>
     <div class="container">
         <div class="section-title">Keunggulan</div>
-        <h2 class="section-heading">Ini yang bikin WAJAR.AI beda dari yang lain</h2>
-        <div class="section-sub">Bukan cuma chatbot. Ini AI paling "wajar" yang pernah ada.</div>
+        <h2 class="section-heading">Kenapa harus WAJAR.AI?</h2>
+        <div class="section-sub">Gak perlu mikir dua kali. Ini alasannya.</div>
         <div class="steps">
             <div class="step">
-                <div class="step-num">🕌</div>
-                <div class="step-body">
-                    <div class="step-title">#1 Guru Ngopi Sejati</div>
-                    <div class="step-desc">Bukan robot kaku. Aiman ngerti adab, ngerti konteks pesantren, bisa Bahasa Arab dasar. Chat terasa kayak ngobrol sama ustadz — bukan mesin pencarian.</div>
-                </div>
-            </div>
-            <div class="step">
                 <div class="step-num">📱</div>
+                <div class="step-icon"></div>
                 <div class="step-body">
-                    <div class="step-title">#2 Satu Nomor WA. Selesai.</div>
-                    <div class="step-desc">Gak perlu install aplikasi, gak perlu daftar pakai email, gak perlu belajar cara pake. Cukup simpen satu nomor WA di HP — kamu udah punya AI canggih di saku. Kompetitor lain suruh download app ribet, ini tinggal chat.</div>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-num">💰</div>
-                <div class="step-body">
-                    <div class="step-title">#3 Murahnya Warung Kopi</div>
-                    <div class="step-desc">Mulai gratis 8.000 kata per hari. Abis itu Rp1.000 per jam. Segelas kopi bisa buat belajar seharian. Coba cari AI senasional ini dengan harga segitu — gak ada.</div>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-num">🎯</div>
-                <div class="step-body">
-                    <div class="step-title">#4 Bisa Bantu APA SAJA</div>
-                    <div class="step-desc">Resep masak, belajar coding, bikin soal ujian, nulis artikel, konsultasi skripsi, curhat, terjemah Arab. Satu nomor — tak terbatas kemampuan. Ganti-ganti aplikasi? Gak perlu.</div>
+                    <div class="step-title">Gak perlu install app baru</div>
+                    <div class="step-desc">Cukup WhatsApp. Semua orang udah punya, gak perlu belajar aplikasi baru.</div>
                 </div>
             </div>
             <div class="step">
                 <div class="step-num">⏰</div>
+                <div class="step-icon"></div>
                 <div class="step-body">
-                    <div class="step-title">#5 24 Jam Gak Libur</div>
-                    <div class="step-desc">Tengah malam, subuh, pas lagi buntu mikir — Aiman online. Gak pernah offline, gak pernah ngeluh, gak pernah bilang "nanti aja". Temen belajar yang paling setia.</div>
+                    <div class="step-title">24 jam, 7 hari seminggu</div>
+                    <div class="step-desc">Mau tengah malam atau subuh, Aiman siap bantu. Gak libur, gak ngeluh.</div>
                 </div>
             </div>
             <div class="step">
-                <div class="step-num">🔥</div>
+                <div class="step-num">💰</div>
+                <div class="step-icon"></div>
                 <div class="step-body">
-                    <div class="step-title">#6 Gak Bisa Ditiru</div>
-                    <div class="step-desc">Kombinasi WhatsApp + konteks pesantren + harga murah — gak ada yang punya kombinasi ini. AI canggih biasanya aplikasi ribet dan mahal. AI yang di WA biasanya cuma bot kaku. WAJAR.AI adalah satu-satunya yang <strong>canggih, lewat WA, dan ngerti kamu.</strong></div>
+                    <div class="step-title">Murahnya gak masuk akal</div>
+                    <div class="step-desc">Rp1.000/jam? Lebih murah dari parkir motor. Ada gratisnya lagi.</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">🎯</div>
+                <div class="step-icon"></div>
+                <div class="step-body">
+                    <div class="step-title">Buat semua orang</div>
+                    <div class="step-desc">Ibu RT, santri, mahasiswa, bapak-bapak — semua pasti butuh.</div>
                 </div>
             </div>
         </div>
@@ -650,38 +531,28 @@
             </div>
             <div class="price-row">
                 <div class="price-info">
-                    <div class="price-icon">🎁</div>
-                    <div class="price-label">Gratis Cobain<small>8.000 kata — cukup buat kenalan, tanya-tanya, lihat sendiri kualitasnya</small></div>
-                </div>
-                <div class="price-amount">Gratis</div>
-            </div>
-            <div class="price-row">
-                <div class="price-info">
                     <div class="price-icon">⏱️</div>
-                    <div class="price-label">Per Jam<small>Pas lagi butuh bentar — lebih murah dari parkir motor</small></div>
+                    <div class="price-label">Per Jam<small>Pas lagi butuh bentar aja — hemat kalau pemakaian ringan</small></div>
                 </div>
                 <div class="price-amount">Rp1.000</div>
             </div>
             <div class="price-row">
                 <div class="price-info">
                     <div class="price-icon">🌞</div>
-                    <div class="price-label">Per Hari<small>Chat sepuasnya — diskon 58% dari harga per jam</small></div>
+                    <div class="price-label">Per Hari<small>Lebih hemat — chat sepuasnya seharian penuh</small></div>
                 </div>
                 <div class="price-amount">Rp10.000</div>
             </div>
             <div class="price-row">
                 <div class="price-info">
                     <div class="price-icon">📅</div>
-                    <div class="price-label">Per Pekan<small>Paling irit — seminggu penuh bebas. Hanya Rp7.000/hari!</small></div>
+                    <div class="price-label">Per Pekan<small>Paling irit — bebas chat seminggu penuh tanpa batas</small></div>
                 </div>
                 <div class="price-amount">Rp50.000</div>
             </div>
         </div>
-        <div style="text-align:center;margin-top:24px;font-size:14px;color:var(--text-muted);">
-            📌 <strong>Cara bayar:</strong> Chat "Mau bayar" ke WA Aiman → dapat QRIS → transfer → kirim bukti. Gampang.
-        </div>
-        <div style="text-align:center;margin-top:16px;">
-            <a class="hero cta" href="https://wa.me/6282189456728?text=Halo+Aiman%2C+mau+langganan" target="_blank">💬 Chat Aiman <span style="font-size:12px;">&rarr;</span></a>
+        <div style="text-align:center;margin-top:24px;">
+            <a class="hero cta" href="https://lynk.id/wajarai" target="_blank">🛒 Pilih Paket <span style="font-size:12px;">&rarr;</span></a>
         </div>
     </div>
 </section>
@@ -713,23 +584,23 @@
         <div class="faq-list">
             <div class="faq-item">
                 <div class="faq-q">Caranya gimana? Ribet gak?</div>
-                <div class="faq-a">Gak ribet sama sekali. Simpen nomor WA Aiman, chat, tanya apa aja. Kayak chat temen biasa. Gak perlu download, gak perlu daftar, gak perlu belajar. <strong>Ini yang gak bisa ditiru kompetitor — mereka semua pake aplikasi.</strong></div>
+                <div class="faq-a">Gak ribet sama sekali. Chat nomor WAJAR.AI, tanya apa aja. Kayak chat temen biasa. Dijamin gak perlu install apa-apa.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-q">Gratisnya beneran? Ada tangkapan?</div>
-                <div class="faq-a">Beneran gratis 8.000 kata pertama. Gak perlu daftar, gak perlu kasih data pribadi. Cobain dulu, kalau gak suka ya tinggal. Simple.</div>
+                <div class="faq-a">Beneran gratis 8.000 kata pertama. Gak perlu daftar, gak perlu kasih data pribadi. Cobain dulu aja, kalau gak suka ya tinggal.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-q">Aiman itu AI atau orang beneran?</div>
-                <div class="faq-a">AI. Tapi bukan bot kaku. Aiman ngerti adab, ngerti konteks pesantren, bisa bantu hal rumit. Banyak yang ngira Aiman orang beneran karena obrolannya natural. <strong>Coba aja sendiri — kamu bakal lupa kalau ini AI.</strong></div>
+                <div class="faq-a">AI. Tapi responnya ramah, paham konteks, dan bisa bantu hal-hal rumit. Banyak yang ngira Aiman orang beneran karena obrolannya natural dan paham konteks.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-q">Abis gratis, bayarnya gimana?</div>
-                <div class="faq-a">Chat "Mau bayar" ke Aiman — dikasih QRIS. Transfer berapa sesuai paket yang dipilih. Kirim bukti. Selesai. <strong>Gak ada potong-potong, gak ada tunggu lama, gak ada sistem ribet.</strong></div>
+                <div class="faq-a">Via LynkID. Bisa QRIS, Gopay, OVO, transfer bank. Abis bayar, langsung lanjut chat. Gak ada potong-potong, gak ada tunggu lama.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-q">Aku butuh Aiman untuk grup WA/sekolah gimana?</div>
-                <div class="faq-a">Bisa! Aiman bisa masuk ke grup WA pondok/sekolah kamu. Hubungi langsung Bang Dadan untuk paket institusi — ada harga khusus untuk pesantren dan sekolah.</div>
+                <div class="faq-q">Dataku aman gak?</div>
+                <div class="faq-a">Aman. Chat bersifat pribadi, Aiman gak bocorin data ke siapapun. Semua tersimpan di server sendiri yang aman.</div>
             </div>
         </div>
     </div>
@@ -737,7 +608,7 @@
 
 <!-- CTA BOTTOM -->
 <div class="cta-section">
-    <h2>Siap cobain AI paling wajar sedunia? 🚀</h2>
+    <h2>Siap cobain WAJAR.AI? 🚀</h2>
     <p>Chat sekarang, gratis 8.000 kata. Gak ada ruginya nyoba.</p>
     <a class="cta" href="https://wa.me/6282189456728?text=Halo+Aiman%2C+gratis+dong" target="_blank">💬 Chat Aiman Gratis <span style="font-size:12px;opacity:0.8;">&rarr;</span></a>
     <div style="margin-top:14px;font-size:13px;opacity:0.6;">Atau chat "Mau bayar" kalau udah siap langganan 😉</div>
@@ -746,9 +617,9 @@
 <!-- FOOTER -->
 <footer>
     <div class="container">
-        <div class="footer-brand" style="font-size:20px;font-weight:900;color:var(--navy);letter-spacing:-1px;">WAJAR.<span style="color:var(--accent);">AI</span></div>
-        <div style="opacity:0.6;font-size:13px;margin-top:4px;">WA + Ajar + AI — Teman Digital Kamu 🤲</div>
-        <div style="opacity:0.4;font-size:12px;margin-top:14px;">© 2026 Pondok Informatika. Santri bikin, santri pake.</div>
+        <p><strong>WAJAR.AI</strong> — WA + Ajar + AI — <em>"Belajar apa aja, cukup WA aja"</em></p>
+        <p style="margin-top:6px;">Berdiri di atas <strong>Pondok Informatika</strong> &amp; Pesantren Teknologi, Makassar</p>
+        <p style="margin-top:10px;"><a href="https://pondokinformatika.id">pondokinformatika.id</a> &middot; 2026 WAJAR.AI 🤲</p>
     </div>
 </footer>
 
