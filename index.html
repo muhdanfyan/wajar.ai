@@ -3,59 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="og:title" content="WAJAR.AI — Belajar apa aja, cukup WA aja">
+    
+    <!-- PRIMARY META -->
+    <title>WAJAR.AI — Belajar apa aja, cukup WA aja</title>
+    <meta name="description" content="Chat AI via WhatsApp. Gratis 8.000 kata pertama. Belajar coding, masak, ngaji, matematika & ide usaha cuma lewat WA. Rp1.000/jam. Dari Pondok Informatika Makassar.">
+    <meta name="keywords" content="WAJAR.AI, asisten AI WhatsApp, belajar via WA, guru AI Indonesia, Pondok Informatika, AI Makassar, chatbot Indonesia">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Pondok Informatika Makassar">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="WAJAR.AI — Belajar apa aja, cukup WA aja">
     <meta property="og:description" content="Gratis 8.000 kata pertama. Belajar apa aja lewat WhatsApp.">
     <meta property="og:image" content="https://wajar.pondokinformatika.id/hero-poster.png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="1350">
     <meta property="og:url" content="https://wajar.pondokinformatika.id">
     <meta property="og:type" content="website">
-<title>WAJAR.AI — Belajar apa aja, cukup WA aja</title>
-    <meta name="description" content="Chat AI via WhatsApp. Gratis cobain dulu. Resep masak, belajar coding, ide usaha, curhat — semua lewat satu nomor WA.">
+    <meta property="og:site_name" content="WAJAR.AI">
+    <meta property="og:locale" content="id_ID">
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WAJAR.AI — Belajar apa aja, cukup WA aja">
+    <meta name="twitter:description" content="Guru AI di WhatsApp. Gratis 8.000 kata pertama. Rp1.000/jam.">
+    <meta name="twitter:image" content="https://wajar.pondokinformatika.id/hero-poster.png">
+
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
+        /* ===== RESET & VARIABLES ===== */
         :root {
-            --navy: #0f3460;
-            --navy-dark: #092046;
-            --navy-light: #1a4a7a;
-            --accent: #e18f3a;
+            --cream: #fdf8f0;
+            --cream-dark: #f5ede0;
+            --navy: #0a1628;
+            --navy-light: #162d50;
+            --accent: #d4822e;
             --accent-light: #f0b86e;
-            --accent-dark: #c67a2e;
-            --green: #4caf50;
-            --green-light: #e8f5e9;
-            --bg-muted: #faf7f0;
-            --bg-card: #ffffff;
-            --border: #e8ecf0;
-            --text: #22223a;
-            --text-muted: #7a7680;
+            --accent-glow: rgba(212,130,46,0.15);
+            --green: #2ecc71;
+            --text: #1a1a2e;
+            --text-muted: #7a7a8a;
+            --card-bg: #ffffff;
+            --card-border: rgba(0,0,0,0.06);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 24px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 48px rgba(0,0,0,0.08);
             --radius: 16px;
             --radius-sm: 10px;
+            --radius-lg: 24px;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--text);
             background: #ffffff;
-            line-height: 1.7;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
-        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+        .container {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
         /* ===== NAVBAR ===== */
         .navbar {
             position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            background: rgba(11,26,48,0.95);
-            backdrop-filter: blur(12px);
+            background: rgba(10,22,40,0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(255,255,255,0.06);
-            padding: 14px 0;
+            padding: 12px 0;
         }
         .navbar .container {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-        .nav-brand { font-size: 22px; font-weight: 900; color: white; letter-spacing: -1px; }
+        .nav-brand {
+            font-size: 20px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.5px;
+        }
         .nav-brand span { color: var(--accent); }
         .nav-cta {
             display: inline-flex;
@@ -63,116 +98,204 @@
             gap: 6px;
             background: var(--accent);
             color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
+            padding: 8px 18px;
+            border-radius: 100px;
             font-size: 12px;
             font-weight: 700;
             text-decoration: none;
+            transition: all 0.2s;
         }
-        .nav-cta:hover { background: var(--accent-dark); }
+        .nav-cta:hover {
+            background: #c07528;
+            transform: translateY(-1px);
+        }
 
-        /* ===== HERO ===== */
+        /* ===== HERO — PURE MOBILE LAYOUT ===== */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: var(--bg-muted);
+            justify-content: center;
             text-align: center;
-            padding-top: 70px;
+            padding-top: 60px;
+            background: linear-gradient(180deg, var(--cream) 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
         }
-.hero .poster-img {
-            max-width: 100%;
-            width: 100%;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        .hero .poster-wrap {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .hero .poster-img {
+            width: 280px;
+            max-width: 85%;
             height: auto;
-            border-radius: 12px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
             display: block;
-            margin: 0 auto 20px;
+            transition: transform 0.3s;
+        }
+        .hero .poster-img:hover {
+            transform: scale(1.02);
         }
         .hero .tagline {
             font-size: 15px;
-            font-weight: 400;
+            font-weight: 500;
             color: var(--text-muted);
-            margin: 0 0 24px;
+            margin-bottom: 28px;
+            letter-spacing: -0.2px;
+        }
+        .hero .cta-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
         .hero .cta {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             background: var(--accent);
             color: white;
-            padding: 14px 40px;
-            border-radius: 50px;
+            padding: 14px 36px;
+            border-radius: 100px;
             font-size: 15px;
             font-weight: 600;
             text-decoration: none;
-        }/* ===== SECTIONS ===== */
-        section { padding: 64px 0; }
-        section:nth-child(even) { background: var(--bg-muted); }
+            width: 100%;
+            max-width: 280px;
+            transition: all 0.25s;
+            box-shadow: 0 4px 16px var(--accent-glow);
+        }
+        .hero .cta:hover {
+            background: #c07528;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px var(--accent-glow);
+        }
+        .hero .cta-sub {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* ===== SECTIONS ===== */
+        section { padding: 48px 0; }
+        section:nth-child(even) { background: var(--cream); }
+
         .section-title {
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 700;
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             margin-bottom: 4px;
         }
-        .section-sub {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin: -4px 0 28px;
-        }
         .section-heading {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 800;
             color: var(--text);
             margin-bottom: 6px;
+            letter-spacing: -0.5px;
         }
+        .section-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        /* ===== HERO PROMO BANNER ===== */
         .hero-promo {
             text-align: center;
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 28px;
+            background: linear-gradient(135deg, var(--accent-glow), rgba(46,204,113,0.08));
+            border: 1px solid rgba(212,130,46,0.15);
+            border-radius: var(--radius);
+            padding: 14px 18px;
+            margin-bottom: 24px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--navy);
         }
-        .hero-promo strong { color: var(--text); }
+        .hero-promo strong { color: var(--accent); }
 
-        .steps { display: flex; flex-direction: column; gap: 14px; }
+        /* ===== STEPS ===== */
+        .steps { display: flex; flex-direction: column; gap: 10px; }
         .step {
-            display: flex; align-items: flex-start; gap: 14px;
-            background: var(--bg-card);
-            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--card-bg);
+            padding: 16px 18px;
             border-radius: var(--radius-sm);
-            border: 1px solid var(--border);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s;
+        }
+        .step:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
         }
         .step-num {
             flex-shrink: 0;
-            width: 32px; height: 32px;
-            background: var(--bg-muted);
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 14px; font-weight: 800; color: var(--accent);
+            font-size: 13px; font-weight: 800; color: white;
         }
         .step-body { flex: 1; }
-        .step-title { font-size: 15px; font-weight: 700; color: var(--text); }
-        .step-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+        .step-title { font-size: 14px; font-weight: 700; color: var(--text); }
+        .step-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-top: 2px; }
 
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        /* ===== GRID FITUR ===== */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .feat {
-            background: var(--bg-card);
-            padding: 20px;
+            background: var(--card-bg);
+            padding: 16px;
             border-radius: var(--radius-sm);
-            border: 1px solid var(--border);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s;
         }
-        .feat-icon { font-size: 28px; margin-bottom: 4px; }
-        .feat-title { font-size: 15px; font-weight: 700; color: var(--text); }
-        .feat-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+        .feat:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+        .feat-icon { font-size: 24px; margin-bottom: 6px; }
+        .feat-title { font-size: 13px; font-weight: 700; color: var(--text); }
+        .feat-desc { font-size: 11px; color: var(--text-muted); line-height: 1.5; margin-top: 2px; }
 
+        /* ===== PRICING ===== */
         .price-row {
-            display: flex; align-items: center; justify-content: space-between;
-            background: var(--bg-card);
-            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--card-bg);
+            padding: 14px 18px;
             border-radius: var(--radius-sm);
-            border: 1px solid var(--border);
-            margin-bottom: 10px;
+            border: 1px solid var(--card-border);
+            margin-bottom: 8px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s;
+        }
+        .price-row:hover {
+            box-shadow: var(--shadow-md);
         }
         .price-row.highlight {
             border: 2px solid var(--accent);
@@ -182,93 +305,225 @@
         .price-row.highlight::before {
             content: '⭐ TERLARIS';
             position: absolute;
-            top: -10px; right: 20px;
+            top: -9px; right: 14px;
             background: var(--accent);
             color: white;
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 800;
             padding: 2px 10px;
-            border-radius: 4px;
+            border-radius: 6px;
             letter-spacing: 0.5px;
         }
-        .price-label { font-size: 14px; font-weight: 600; }
-        .price-label small { display: block; font-weight: 400; font-size: 11px; color: var(--text-muted); }
-        .price-amount { font-size: 18px; font-weight: 800; color: var(--accent); white-space: nowrap; }
-        .price-row.highlight .price-amount { font-size: 24px; }
+        .price-label { font-size: 13px; font-weight: 600; }
+        .price-label small {
+            display: block;
+            font-weight: 400;
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 1px;
+        }
+        .price-amount { font-size: 17px; font-weight: 800; color: var(--accent); white-space: nowrap; }
+        .price-row.highlight .price-amount { font-size: 22px; }
 
-        .testi {
-            background: var(--bg-card);
+        /* ===== QRIS ===== */
+        .qris-section {
+            margin-top: 20px;
+            text-align: center;
+            background: var(--card-bg);
             padding: 20px;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-sm);
+        }
+        .qris-label {
             font-size: 13px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .qris-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+        .qris-img {
+            width: 180px;
+            height: auto;
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+        .qris-note {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .qris-note strong { color: var(--text); }
+
+        /* ===== TESTIMONIALS ===== */
+        .testi {
+            background: var(--card-bg);
+            padding: 18px 20px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-sm);
+            font-size: 12px;
             line-height: 1.6;
+            transition: all 0.2s;
+        }
+        .testi:hover {
+            box-shadow: var(--shadow-md);
         }
         .testi p { font-style: italic; color: var(--text-muted); }
-        .testi-author { margin-top: 10px; font-weight: 700; color: var(--text); font-style: normal; }
-        .testi-author small { display: block; font-weight: 400; font-size: 11px; color: var(--text-muted); }
+        .testi-author {
+            margin-top: 8px;
+            font-weight: 700;
+            color: var(--text);
+            font-style: normal;
+            font-size: 12px;
+        }
+        .testi-author small {
+            display: block;
+            font-weight: 400;
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 1px;
+        }
+        .testi + .testi { margin-top: 10px; }
 
-        .faq-item { border-bottom: 1px solid var(--border); padding: 14px 0; }
-        .faq-q { font-size: 14px; font-weight: 600; color: var(--text); cursor: default; }
-        .faq-a { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 22px; }
+        /* ===== FAQ ===== */
+        .faq-item {
+            border-bottom: 1px solid var(--card-border);
+            padding: 14px 0;
+        }
+        .faq-q {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            cursor: default;
+        }
+        .faq-a {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            padding-left: 0;
+            margin-top: 4px;
+        }
 
         /* ===== CTA SECTION ===== */
         .cta-section {
             text-align: center;
-            padding: 60px 24px;
-            background: var(--bg-muted);
+            padding: 56px 20px;
+            background: linear-gradient(180deg, var(--cream) 0%, #ffffff 100%);
         }
-        .cta-section h2 { font-size: 28px; font-weight: 800; color: var(--text); }
-        .cta-desc { font-size: 14px; color: var(--text-muted); margin: 10px 0 24px; }
+        .cta-section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: -0.5px;
+        }
+        .cta-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 10px 0 24px;
+            max-width: 320px;
+            margin-left: auto;
+            margin-right: auto;
+        }
         .cta-section .cta {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            gap: 8px;
             background: var(--accent);
             color: white;
-            padding: 16px 44px;
-            border-radius: 50px;
-            font-size: 16px;
+            padding: 15px 40px;
+            border-radius: 100px;
+            font-size: 15px;
             font-weight: 700;
             text-decoration: none;
+            box-shadow: 0 4px 20px var(--accent-glow);
+            transition: all 0.25s;
         }
-        .cta-section .cta:hover { transform: translateY(-2px); }
-        .cta-footer-note { font-size: 13px; color: var(--text-muted); margin-top: 14px; }
+        .cta-section .cta:hover {
+            background: #c07528;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px var(--accent-glow);
+        }
+        .cta-footer-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
 
         /* ===== FOOTER ===== */
         footer {
             text-align: center;
-            padding: 36px 24px;
-            font-size: 14px;
+            padding: 32px 20px;
+            font-size: 13px;
             color: var(--text-muted);
-            background: var(--bg-muted);
-            border-top: 1px solid var(--border);
+            background: var(--navy);
+            border-top: none;
         }
         footer p { margin-top: 4px; }
-        footer strong { color: var(--text); font-size: 16px; }
+        footer strong { color: white; font-size: 15px; }
+        footer span.accent { color: var(--accent); }
         footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
-        footer .footer-tagline { font-style: italic; opacity: 0.8; }
-        footer .footer-attr { font-size: 12px; opacity: 0.7; }
-        footer .footer-copy { font-size: 11px; opacity: 0.5; margin-top: 10px; }
+        footer .footer-tagline {
+            font-style: italic;
+            opacity: 0.7;
+            font-size: 12px;
+        }
+        footer .footer-attr {
+            font-size: 11px;
+            opacity: 0.5;
+        }
+        footer .footer-copy {
+            font-size: 10px;
+            opacity: 0.4;
+            margin-top: 8px;
+        }
 
-        @media (max-width: 768px) {
-
-            .hero .poster-img { max-width: 100%; }
-            .hero .tagline { font-size: 14px; }
-            .hero .cta { padding: 12px 30px; font-size: 14px; }
-            .section-heading { font-size: 22px; }
-            .grid-2 { grid-template-columns: 1fr; }
-            .step { padding: 14px 16px; }
-            .price-row { flex-direction: column; align-items: flex-start; gap: 6px; }
-            .price-amount { align-self: flex-end; }
-            .price-row.highlight::before { right: 10px; font-size: 9px; }
+        /* ===== RESPONSIVE (untuk layar > 480px tetap mobile) ===== */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 420px;
+            }
+            .hero .poster-img {
+                width: 260px;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
         }
         @media (max-width: 480px) {
-
-            .hero .poster-img { max-width: 100%; }
+            .hero .poster-img { width: 250px; }
+            .grid-2 { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .grid-2 .feat { padding: 14px; }
+        }
+        @media (max-width: 360px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .hero .poster-img { width: 220px; }
         }
     </style>
-    <meta name="keywords" content="WAJAR.AI, belajar via WA, AI Indonesia, guru privat AI, Pondok Informatika, Makassar, les coding murah, asisten belajar WhatsApp">
+
+    <!-- STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "WAJAR.AI",
+        "url": "https://wajar.pondokinformatika.id/",
+        "description": "Asisten belajar AI lewat WhatsApp. Gratis cobain dulu.",
+        "provider": {
+            "@type": "Organization",
+            "name": "Pondok Informatika",
+            "url": "https://pondokinformatika.id"
+        },
+        "inLanguage": "id-ID"
+    }
+    </script>
 </head>
 <body>
 
@@ -280,22 +535,27 @@
     </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO → Mobile-first: gambar tengah, teks bawah -->
 <section class="hero">
     <div class="container">
-        <img src="hero-poster.png" alt="WAJAR.AI - Guru Ngopi Sejati" class="poster-img" />
+        <div class="poster-wrap">
+            <img src="hero-poster.png" alt="WAJAR.AI — Guru Ngopi Sejati" class="poster-img" loading="eager" />
+        </div>
         <p class="tagline">Belajar apa aja, cukup WA aja</p>
-        <a class="cta" href="https://wa.me/6282189456728?text=Halo+Aiman%2C+gratis+dong" target="_blank">💬 Coba Gratis</a>
+        <div class="cta-wrap">
+            <a class="cta" href="https://wa.me/6282189456728?text=Halo+Aiman%2C+gratis+dong" target="_blank">💬 Chat Aiman Gratis</a>
+            <span class="cta-sub">🎁 8.000 kata pertama gratis</span>
+        </div>
     </div>
 </section>
 
 <!-- CARA KERJA -->
 <section>
     <div class="container">
-        <p class="hero-promo">🎁 <strong>8.000 kata gratis</strong> — cobain dulu, kalau suka baru bayar</p>
+        <div class="hero-promo">🎁 <strong>8.000 kata gratis</strong> — cobain dulu, kalau suka baru bayar</div>
         <div class="section-title">Cara Kerja</div>
-        <h2 class="section-heading">Gampang banget, 3 langkah aja</h2>
-        <div class="section-sub">Gak perlu ribet. Cukup WhatsApp yang udah ada.</div>
+        <h2 class="section-heading">Gampang banget</h2>
+        <div class="section-sub">Cukup WhatsApp yang udah ada.</div>
         <div class="steps">
             <div class="step">
                 <div class="step-num">1</div>
@@ -343,18 +603,18 @@
 <section>
     <div class="container">
         <div class="section-title">Harga</div>
-        <h2 class="section-heading">Murah banget, semurah ngopi</h2>
-        <div class="section-sub">Gratis cobain dulu. Baru bayar kalau udah terbukti manfaat.</div>
+        <h2 class="section-heading">Murah banget</h2>
+        <div class="section-sub">Semurah ngopi. Gratis cobain dulu.</div>
         <div class="price-row highlight">
-            <div class="price-label">🎁 Starter Gratis<small>8.000 kata pertama — cobain dulu tanpa resiko</small></div>
+            <div class="price-label">🎁 Starter Gratis<small>8.000 kata pertama — cobain dulu</small></div>
             <div class="price-amount">Rp0</div>
         </div>
         <div class="price-row">
-            <div class="price-label">☕ Per Jam<small>Pas lagi butuh dadakan</small></div>
+            <div class="price-label">☕ Per Jam<small>Pas butuh dadakan</small></div>
             <div class="price-amount">Rp1.000</div>
         </div>
         <div class="price-row">
-            <div class="price-label">📅 Per Hari<small>Kalau seharian penuh mau tanya-tanya</small></div>
+            <div class="price-label">📅 Per Hari<small>Seharian penuh tanya-tanya</small></div>
             <div class="price-amount">Rp10.000</div>
         </div>
         <div class="price-row">
@@ -365,12 +625,13 @@
             <div class="price-label">🌙 Per Bulan<small>Paling hemat — kurang dari segelas kopi/hari</small></div>
             <div class="price-amount">Rp150.000</div>
         </div>
+
         <!-- QRIS -->
         <div class="qris-section">
             <div class="qris-label">💳 Bayar via QRIS</div>
-            <p class="qris-desc">Transfer sesuai nominal di atas. Kirim bukti transfer ke Aiman via WA untuk aktivasi.</p>
-            <img src="qris.png" alt="QRIS WAJAR.AI" class="qris-img" />
-            <p class="qris-note">Setelah transfer, chat Aiman: <strong>"Udah transfer [nominal]"</strong> — nanti Aktivasi dalam 5 menit ✅</p>
+            <p class="qris-desc">Transfer sesuai nominal di atas. Kirim bukti ke Aiman via WA untuk aktivasi.</p>
+            <img src="qris.png" alt="QRIS WAJAR.AI" class="qris-img" loading="lazy" />
+            <p class="qris-note">Setelah transfer, chat Aiman: <strong>"Udah transfer [nominal]"</strong> ✅</p>
         </div>
     </div>
 </section>
@@ -379,18 +640,16 @@
 <section>
     <div class="container">
         <div class="section-title">Testimoni</div>
-        <h2 class="section-heading">Kata Mereka</h2>
+        <h2 class="section-heading">Kata mereka</h2>
         <div class="section-sub">Yang udah coba, pada bilang...</div>
         <div class="testi">
             <p>"Bu guru kalau lagi sibuk, tinggal chat WAJAR.AI. Santai."</p>
             <div class="testi-author">— Ustadz Hasan <small>Guru Ngaji, Makassar</small></div>
         </div>
-        <div style="height:12px"></div>
         <div class="testi">
             <p>"Pake buat bikin konten medsos masjid. Cepet banget."</p>
             <div class="testi-author">— Kak Rina <small>Admin Medsos Masjid</small></div>
         </div>
-        <div style="height:12px"></div>
         <div class="testi">
             <p>"Ngajarin anak PR matematika. Dulu stress, sekarang tinggal foto soal kirim ke WA."</p>
             <div class="testi-author">— Ibu Dewi <small>Orang Tua Santri</small></div>
@@ -398,7 +657,7 @@
     </div>
 </section>
 
-<!-- TANYA JAWAB -->
+<!-- FAQ -->
 <section>
     <div class="container">
         <div class="section-title">Tanya Jawab</div>
@@ -433,7 +692,7 @@
 <!-- FOOTER -->
 <footer>
     <div class="container">
-        <p><strong>WAJAR.<span style="color:var(--accent)">AI</span></strong> — <em>WA</em> + <em>Ajar</em> + <em>AI</em></p>
+        <p><strong>WAJAR.<span class="accent">AI</span></strong> — <em>WA</em> + <em>Ajar</em> + <em>AI</em></p>
         <p class="footer-tagline">"Belajar apa aja, cukup WA aja"</p>
         <p class="footer-attr">Berdiri di atas Pondok Informatika &amp; Pesantren Teknologi, Makassar</p>
         <p class="footer-copy"><a href="https://pondokinformatika.id">pondokinformatika.id</a> · 2026 WAJAR.AI 🤲</p>
